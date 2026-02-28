@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium
+           transition-colors focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 px-4 py-2;
+  }
+  .btn-ghost {
+    @apply hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2;
+  }
+  .card {
+    @apply rounded-xl border bg-card text-card-foreground shadow-sm;
+  }
+  .input {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2
+           text-sm ring-offset-background file:border-0 file:bg-transparent
+           file:text-sm file:font-medium placeholder:text-muted-foreground
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .badge {
+    @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs
+           font-semibold transition-colors;
+  }
+  .badge-primary {
+    @apply border-transparent bg-primary text-primary-foreground;
+  }
+  .badge-secondary {
+    @apply border-transparent bg-secondary text-secondary-foreground;
+  }
+  .badge-success {
+    @apply border-transparent bg-green-500 text-white;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Markdown styles in chat */
+.prose-chat p { margin-bottom: 0.5rem; }
+.prose-chat ul { list-style: disc; padding-left: 1.5rem; margin: 0.5rem 0; }
+.prose-chat ol { list-style: decimal; padding-left: 1.5rem; margin: 0.5rem 0; }
+.prose-chat code {
+  background: rgba(0,0,0,0.05);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+.prose-chat pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 0.5rem 0;
+}
