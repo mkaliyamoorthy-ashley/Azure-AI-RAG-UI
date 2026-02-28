@@ -3,9 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  // Build output goes to backend/static for Azure deployment
+  // Build output goes to dist for Azure App Service deployment
   build: {
-    outDir: '../backend/static',
+    outDir: 'dist',
     emptyOutDir: true,
   },
   server: {
